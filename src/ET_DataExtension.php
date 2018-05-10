@@ -33,7 +33,7 @@ class ET_DataExtension extends ET_CUDSupport
 			$this->props["Fields"] = array("Field"=>array());		
 			if (!is_null($this->columns) && is_array($this->columns)){
 				foreach ($this->columns as $column){
-					array_push($this->props['Fields']['Field'], $column);
+					$this->props['Fields']['Field'][] = $column;
 				}	
 			}							
 		} else {
