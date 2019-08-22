@@ -40,6 +40,21 @@ class ET_Email_SendDefinition extends ET_CUDSupport
 	}
 
 	/** 
+	* Test Send this instance.
+	* @return ET_Perform     Object of type ET_Perform which contains http status code, response, etc from the START SOAP service
+	*/	
+	function testSend()
+	{
+		$originalProps = $this->props;		
+		$response = new ET_Perform($this->authStub, $this->obj, 'test', $this->props);
+		if ($response->status) {
+			$this->lastTaskID = $response->results[0]->Task->ID;
+		}
+		$this->props = $originalProps;
+		return $response;
+	}
+
+	/** 
 	* Status of this instance.
 	* @return ET_Get     Object of type ET_Get which contains http status code, response, etc from the GET SOAP service 
 	*/	
