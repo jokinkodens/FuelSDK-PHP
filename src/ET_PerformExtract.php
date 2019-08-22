@@ -21,7 +21,7 @@ class ET_PerformExtract extends ET_Constructor
 		$perform['ExtractRequestMsg'] = $performRequest;
 		$return = $authStub->__soapCall("Extract", $perform, null, null , $out_header);
 		parent::__construct($return, $authStub->__getLastResponseHTTPCode());
-        print_r($return);
+        // print_r($return);
 
         $this->status = $return->OverallStatus;
         $this->request_id = $return->RequestID;
